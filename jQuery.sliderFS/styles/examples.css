@@ -1,0 +1,38 @@
+﻿body {
+  font-family: 'Titillium Web', sans-serif; }
+
+#example-simple .slider .container .slide:nth-child(3n+1) {
+  background: #0094ff;
+  color: #9ae7d9; }
+#example-simple .slider .container .slide:nth-child(3n+2) {
+  background: #440e62;
+  color: #c19bdf; }
+#example-simple .slider .container .slide:nth-child(3n+3) {
+  background: #ff006e;
+  color: #f4b3dc; }
+#example-simple .slider .container .slide {
+  display: table;
+  text-align: center; }
+  #example-simple .slider .container .slide section.slideContent {
+    display: table-cell;
+    vertical-align: middle; }
+    #example-simple .slider .container .slide section.slideContent > * {
+      margin: auto;
+      width: 30%; }
+    #example-simple .slider .container .slide section.slideContent header {
+      border-bottom: 1px solid #fff; }
+      #example-simple .slider .container .slide section.slideContent header h1 {
+        font-size: 50pt;
+        margin-bottom: 10px; }
+    #example-simple .slider .container .slide section.slideContent .content {
+      font-size: 20pt;
+      border-bottom: 1px solid #fff; }
+    #example-simple .slider .container .slide section.slideContent footer .author, #example-simple .slider .container .slide section.slideContent footer .featured {
+      color: #fff;
+      font-weight: 700; }
+#example-simple .slider .menu .menu-item {
+  background-color: #dadada; }
+#example-simple .slider .menu .menu-item.current {
+  background-color: #ffe918; }
+
+/*# sourceMappingURL=styles.css.map */

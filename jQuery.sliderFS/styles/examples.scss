@@ -1,0 +1,71 @@
+﻿body {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+#example-simple {
+    .slider {
+        .container {
+            .slide:nth-child(3n+1) {
+                background: #0094ff;
+                color: #9ae7d9;
+            }
+
+            .slide:nth-child(3n+2) {
+                background: #440e62;
+                color: #c19bdf;
+            }
+
+            .slide:nth-child(3n+3) {
+                background: #ff006e;
+                color: #f4b3dc;
+            }
+
+            .slide {
+                display: table;
+                text-align: center;
+
+                section.slideContent {
+                    display: table-cell;
+                    vertical-align: middle;
+
+                    > * {
+                        margin: auto;
+                        width: 30%;
+                    }
+
+                    header {
+                        border-bottom: 1px solid #fff;
+
+                        h1 {
+                            font-size: 50pt;
+                            margin-bottom: 10px;
+                        }
+                    }
+
+                    .content {
+                        font-size: 20pt;
+                        border-bottom: 1px solid #fff;
+                    }
+
+                    footer {
+                        .author,
+                        .featured {
+                            color: #fff;
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+        }
+
+        .menu {
+            .menu-item {
+                background-color: #dadada;
+            }
+
+            .menu-item.current {
+                background-color: #ffe918;
+            }
+        }
+    }
+}
