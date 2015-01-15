@@ -169,7 +169,7 @@
                 currentSlide = slidesCount - 1;
             }
             else {
-                currentSlide++;
+                currentSlide--;
             }
             setCurrentSlide(currentSlide);
         }
