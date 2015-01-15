@@ -1,4 +1,4 @@
-﻿$(function () {
+﻿$(function () { 
     $.fn.sliderFS = function (options) {
         var settings = $.extend({
             width: $(window).width(),
