@@ -1,4 +1,4 @@
-﻿$(function () { 
+﻿$(function () {
     $.fn.sliderFS = function (options) {
         var settings = $.extend({
             width: $(window).width(),
@@ -71,8 +71,8 @@
         var paused = false;
         if (settings.autoAnimate) {
             $(container).on('mouseenter', function () {
-                            paused = true;
-                        })
+                paused = true;
+            })
                         .on('mouseover', function () {
                             paused = true;
                         })
@@ -200,9 +200,10 @@
         }
 
         function initializeMenu(menuContainer) {
+            $(menuContainer).css(menuStyles);
             $(menuContainer).on('mouseenter', function () {
-                                paused = true;
-                            })
+                paused = true;
+            })
                             .on('mouseover', function () {
                                 paused = true;
                             })
@@ -211,7 +212,10 @@
                             });
 
             var $menuItems = $(menuContainer).children('.menu-item');
-            $menuItems.eq(0).addClass('current')
+            $menuItems.eq(0).addClass('current');
+            for (var i = 0; i < $menuItems.length; i++) {
+                $($menuItems[i]).css(menuItemStyles);
+            }
             $menuItems.click(function () {
                 index = $(this).index('.menu-item');
                 setCurrentSlide(index);
@@ -221,7 +225,6 @@
         function createMenu() {
             var menu = document.createElement('div');
             menu.setAttribute('class', 'menu');
-            $(menu).css(menuStyles);
 
             for (var i = 0; i < slidesCount; i++) {
                 var menuItem = document.createElement('div');
