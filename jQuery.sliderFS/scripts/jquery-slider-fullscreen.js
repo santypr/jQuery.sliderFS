@@ -55,7 +55,9 @@
             'box-sizing': 'border-box',
             float: 'left',
             width: settings.width,
-            height: settings.height
+            height: settings.height,
+            'background-size': 'cover',
+            'background-position': 'center'
         };
 
         $(this).css(sliderStyles)
