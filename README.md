@@ -1,5 +1,5 @@
 # sliderFS
-sliderFS is another jQuery slider, with fullscreen and touch capabilities.
+sliderFS is a lightweight slider plugin, with fullscreen and touch capabilities.
 
 # Releases
 The master branch of this repository is always the latest development version of FlexSlider. Please view the Releases section for a list of official sliderFS builds.
