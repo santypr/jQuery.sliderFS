@@ -63,6 +63,12 @@
     </Content>
     <Content Include="scripts\vendor\jquery\jquery-2.1.3.min.map" />
     <Content Include="bower.json" />
+    <Content Include="package.json" />
+    <None Include=".bin\git.cmd" />
+    <None Include=".bin\grunt.cmd" />
+    <None Include=".bin\node.cmd" />
+    <Content Include="packages.config" />
+    <None Include=".bin\npm.cmd" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
