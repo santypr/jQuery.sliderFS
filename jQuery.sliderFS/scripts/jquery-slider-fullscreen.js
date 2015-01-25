@@ -7,13 +7,15 @@
             interval: 5000,
             displayMenu: true,
             menuPosition: 'over-bottom',
-            menuContainer: ''
+            menuContainer: '',
+            displatArrows: true
         }, options);
 
         var menuStyles = {
-            position: 'relative',
+            position: 'absolute',
             'z-index': '100',
             bottom: '10%',
+            width: '100%',
             'text-align': 'center'
         };
 
@@ -25,6 +27,8 @@
             'border-radius': '50%'
         };
 
+        $('body').css('overflow', 'hidden');
+        $(document).css('overflow', 'hidden');
         var slider = $(this);
         slider.addClass('slider');
         var container = $(this).children('.container')[0];
@@ -32,13 +36,15 @@
         $(container).children('.slide').eq(0).addClass('current');
         var containerWidth = slidesCount * settings.width;
         var currentSlide = 0;
+        var paused = false;
 
         var sliderStyles = {
             'box-sizing': 'border-box',
             margin: 'auto',
             overflow: 'hidden',
-            width: settings.width + 'px',
-            height: settings.height + 'px'
+            //width: settings.width + 'px',
+            width: '100%',
+            height: '100%'
         };
 
         var containerStyles = {
@@ -55,7 +61,7 @@
             'box-sizing': 'border-box',
             float: 'left',
             width: settings.width,
-            height: settings.height,
+            height: '100%',
             'background-size': 'cover',
             'background-position': 'center'
         };
@@ -68,25 +74,25 @@
         activateArrowKeys();
         activateTouchEvents();
 
-        var sliderInterval;
-        sliderInterval = autoAnimate();
-        var paused = false;
         if (settings.autoAnimate) {
-            $(container).on('mouseenter', function () {
-                paused = true;
-            })
-                        .on('mouseover', function () {
-                            paused = true;
-                        })
-                        .on('mouseleave', function () {
-                            paused = false;
-                        });
-
+            autoAnimate();
         }
 
         if (settings.displayMenu) {
             displayMenu();
         }
+
+        if (settings.displatArrows) {
+            displayArrows();
+        }
+
+        $(window).load(function () {
+            resizeSlider();
+        })
+        .resize(function () {
+            resizeSlider();
+        });
+
 
         // FUNCTIONS
         function activateArrowKeys() {
@@ -150,10 +156,20 @@
         }
 
         function autoAnimate() {
-            return setInterval(function () {
+            var sliderInterval;
+            sliderInterval = setInterval(function () {
                 if (!paused)
                     moveNext(this);
             }, settings.interval);
+
+            $(container).on('mouseenter', function () {
+                paused = true;
+            }).on('mouseover', function () {
+                paused = true;
+            })
+                .on('mouseleave', function () {
+                    paused = false;
+                });
         }
 
         function moveNext() {
@@ -238,6 +254,73 @@
             return menu;
         }
 
+        function displayArrows() {
+            var verticalPosition = (slider.height() - 120) / 2;
+
+            var leftArrowStyles = {
+                position: 'absolute',
+                left: '20px',
+                top: '50%',
+                width: '0',
+                height: '0',
+                'border-top': '60px solid transparent',
+                'border-bottom': '60px solid transparent',
+                'border-right': '40px solid rgba(255, 255, 255, 0.75)'
+            }
+
+            var rightArrowStyles = {
+                position: 'absolute',
+                right: '20px',
+                top: '50%',
+                width: '0',
+                height: '0',
+                'border-top': '60px solid transparent',
+                'border-bottom': '60px solid transparent',
+                'border-left': '40px solid rgba(255, 255, 255, 0.75)'
+            }
+
+
+            var leftArrow = document.createElement('div');
+            leftArrow.setAttribute('class', 'arrow arrow-left');
+            $(leftArrow).css(leftArrowStyles);
+
+            var rightArrow = document.createElement('div');
+            rightArrow.setAttribute('class', 'arrow arrow-right');
+            $(rightArrow).css(rightArrowStyles);
+
+            slider.append(leftArrow);
+            slider.append(rightArrow);
+
+            $('.arrow-right').click(function () {
+                moveNext();
+            });
+            $('.arrow-left').click(function () {
+                movePrevious();
+            });
+        }
+
+        function resizeSlider() {
+            paused = true;
+            var windowWidth = settings.width = $(this).width();
+            var windowHeight = settings.height = '100%';
+            var containerWidth = windowWidth * slidesCount;
+            var containerHeight = $(this).height();
+            var slideWidth = windowWidth;
+            var slideHeight = $(this).height();
+
+            $(container).width(containerWidth)
+                        .height(containerHeight);
+
+            $(container).children('.slide').each(function () {
+                $(this).width(slideWidth)
+                       .height(slideHeight);
+            })
+
+            var containerLeft = -1 * currentSlide * settings.width;
+            $(container).css('left', containerLeft);
+
+            paused = false;
+        }
     };
 
 }(jQuery));
