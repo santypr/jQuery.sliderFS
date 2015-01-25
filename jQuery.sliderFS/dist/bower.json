@@ -1,0 +1,25 @@
+{
+  "name": "sliderFS",
+  "version": "0.0.2",
+  "homepage": "https://github.com/santypr/jQuery.sliderFS",
+  "authors": [
+    "Santiago Porras Rodríguez - @saintwukong"
+  ],
+  "description": "sliderFS is a lightweight slider plugin, with fullscreen and touch capabilities.",
+  "main": "jquery-slider-fullscreen.js",
+  "keywords": [
+    "slider",
+    "carrousel",
+    "fullscreen",
+    "touchable",
+    "jquery"
+  ],
+  "license": "GNU GPL 2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
