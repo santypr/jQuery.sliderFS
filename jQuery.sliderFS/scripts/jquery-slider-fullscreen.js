@@ -259,24 +259,26 @@
 
             var leftArrowStyles = {
                 position: 'absolute',
+                'z-index': '200',
                 left: '20px',
                 top: '50%',
                 width: '0',
                 height: '0',
                 'border-top': '60px solid transparent',
                 'border-bottom': '60px solid transparent',
-                'border-right': '40px solid rgba(255, 255, 255, 0.75)'
+                'border-right': '40px solid rgba(255, 255, 255, 0.5)'
             }
 
             var rightArrowStyles = {
                 position: 'absolute',
+                'z-index': '200',
                 right: '20px',
                 top: '50%',
                 width: '0',
                 height: '0',
                 'border-top': '60px solid transparent',
                 'border-bottom': '60px solid transparent',
-                'border-left': '40px solid rgba(255, 255, 255, 0.75)'
+                'border-left': '40px solid rgba(255, 255, 255, 0.5)'
             }
 
 
